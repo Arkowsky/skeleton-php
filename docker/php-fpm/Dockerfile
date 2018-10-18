@@ -19,8 +19,6 @@ RUN apt-get -y install librabbitmq-dev
 RUN pecl install amqp
 
 RUN docker-php-ext-install \
-    zip \
-    mysql \
     pdo_mysql \
     gettext \
     mbstring \

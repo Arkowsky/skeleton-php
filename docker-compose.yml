@@ -10,8 +10,6 @@ services:
     - php-fpm
     env_file:
     - .env
-    volumes:
-    - ./docker/nginx/site.tmpl:/etc/nginx/conf.d/site.tmpl
 
   php-fpm:
     build:
