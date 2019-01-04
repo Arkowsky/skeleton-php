@@ -2,6 +2,8 @@
 
 echo "deploy prod"
 
+return 0
+
 #set -e
 
 #docker build -t gcr.io/${PROJECT_PROD}/${NGINX_IMAGE}:$TRAVIS_COMMIT -f docker/nginx.dockerfile .
