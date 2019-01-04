@@ -1,3 +1,5 @@
+language: php
+
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
   - DOCKER_USERNAME=Arkowsky
@@ -16,10 +18,12 @@ script:
   - docker-compose pull
   - docker-compose build
   - docker images
-#      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
-#      - docker push $DOCKER_USERNAME/skeleton-php-images
-#  - stage: test
-#    script: echo 'Tests...'
+  - echo 'Tests...'
+
+deploy:
+  - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
+  - docker push $DOCKER_USERNAME/skeleton-php-images
+
 
 #deploy:
 #  - PUSH IMAGE
