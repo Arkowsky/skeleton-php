@@ -24,9 +24,9 @@ before_install:
   - docker-compose -v
 
 script:
-  - docker-compose pull
-  - docker-compose build
-  - docker images
+#  - docker-compose pull
+#  - docker-compose build
+#  - docker images
   - echo 'Tests...'
 
 after_success:
@@ -38,11 +38,12 @@ before_deploy:
   - source /home/travis/google-cloud-sdk/path.bash.inc
   - gcloud --quiet version
   - gcloud --quiet components update
+  - ls
 #  - gcloud --quiet components update kubectl
 
 deploy:
   - provider: script
-    script: chmod +x ./gcloud/deploy-prod.sh && ./gcloud/deploy-prod.sh
+    script: chmod +x gcloud/deploy-prod.sh && gcloud/deploy-prod.sh
     skip_cleanup: true
     on:
       branch: master
