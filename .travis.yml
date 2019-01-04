@@ -1,7 +1,14 @@
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
-  - DOCKER_USERNAME=Arkowsky
-  - DOCKER_PASSWORD=test
+#  - DOCKER_USERNAME=Arkowsky
+#  - DOCKER_PASSWORD=test
+  - GOOGLE_APPLICATION_CREDENTIALS=~/coffeedesk-cloud-e33257ad9f68.json
+  - PROJECT_PROD=coffeedesk-cloud
+  - CLUSTER=coffeedesk-cluster
+  - ZONE=us-central1-b
+  - NGINX_IMAGE=skeleton-php_nginx_1
+  - NGINX_DEPLOYMENT=nginx-deploy
+  - NGINX_CONTAINER=nginx-container
 
 before_install:
   - docker-compose -v
