@@ -20,7 +20,7 @@ script:
   - docker images
   - echo 'Tests...'
 
-deploy:
+after_success:
   - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
   - docker push $DOCKER_USERNAME/skeleton-php-images
 
