@@ -26,3 +26,5 @@ jobs:
       - docker images
       - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
       - docker push $DOCKER_USERNAME/skeleton-php-images
+  - stage: test
+    script: echo 'Tests...'
