@@ -31,8 +31,8 @@ script:
 
 after_success:
 #  - source /home/travis/google-cloud-sdk/path.bash.inc
-#  - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
-#  - docker push $DOCKER_USERNAME/skeleton-php-images
+  - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
+  - docker push $DOCKER_USERNAME/skeleton-php-images
 
 before_deploy:
   - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
@@ -42,11 +42,12 @@ before_deploy:
   - cat /home/travis/google-cloud-sdk/path.bash.inc
   - pwd
   - echo $HOME
+  - ls
 #  - gcloud --quiet components update kubectl
 
 deploy:
   - provider: script
-    script: chmod +x gcloud/deploy-prod.sh && gcloud/deploy-prod.sh
+    script: chmod +x /home/travis/build/Arkowsky/skeleton-php/gcloud/deploy-prod.sh && /home/travis/build/Arkowsky/skeleton-php/gcloud/deploy-prod.sh
     skip_cleanup: true
     on:
       branch: master
