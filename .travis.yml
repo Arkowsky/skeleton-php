@@ -1,30 +1,30 @@
-env:
-  - DOCKER_COMPOSE_VERSION=1.23.2
-  - DOCKER_USERNAME=Arkowsky
-  - DOCKER_PASSWORD=test
+#addons:
+#  apt:
+#    packages:
+#      - docker-ce
 
-addons:
-  apt:
-    packages:
-      - docker-ce
+env:
+    - DOCKER_COMPOSE_VERSION=1.23.2
+    - DOCKER_USERNAME=Arkowsky
+    - DOCKER_PASSWORD=test
 #
-#before_install:
-#  - docker-compose -v
-#  - docker -v
-#  - sudo rm /usr/local/bin/docker-compose
-#  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-#  - chmod +x docker-compose
-#  - sudo mv docker-compose /usr/local/bin
-#  - docker-compose -v
+before_install:
+  - docker-compose -v
+  - docker -v
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose -v
 
 
 jobs:
   - stage: build docker image
     script:
       - docker-compose pull
-      - docker-compose build
-      - docker images
-      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
-      - docker push $DOCKER_USERNAME/skeleton-php-images
-  - stage: test
-    script: echo 'Tests...'
+#      - docker-compose build
+#      - docker images
+#      - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/skeleton-php-images
+#      - docker push $DOCKER_USERNAME/skeleton-php-images
+#  - stage: test
+#    script: echo 'Tests...'
