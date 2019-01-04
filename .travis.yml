@@ -40,6 +40,8 @@ before_deploy:
   - gcloud --quiet version
   - gcloud --quiet components update
   - cat /home/travis/google-cloud-sdk/path.bash.inc
+  - pwd
+  - echo $HOME
 #  - gcloud --quiet components update kubectl
 
 deploy:
