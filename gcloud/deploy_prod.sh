@@ -6,7 +6,7 @@ echo "deploy prod"
 #set -e
 
 #docker build -t gcr.io/${PROJECT_PROD}/${NGINX_IMAGE}:$TRAVIS_COMMIT -f docker/nginx.dockerfile .
-
+echo ${HOME}/gcloud-service-key.json
 echo $GCLOUD_SERVICE_KEY_TEST | base64 --decode -i > ${HOME}/gcloud-service-key.json
 gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
 
