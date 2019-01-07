@@ -47,7 +47,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: chmod +x /home/travis/build/Arkowsky/skeleton-php/gcloud/deploy-prod.sh && /home/travis/build/Arkowsky/skeleton-php/gcloud/deploy-prod.sh
+    script: pwd && chmod +x ./gcloud/deploy-prod.sh && ./gcloud/deploy-prod.sh
     skip_cleanup: true
     on:
       branch: master
