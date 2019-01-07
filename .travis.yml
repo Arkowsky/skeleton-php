@@ -46,7 +46,7 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: pwd && chmod +x ./gcloud/deploy-prod.sh && ./gcloud/deploy-prod.sh
+    script: ls && pwd && chmod +x ./gcloud/deploy-prod.sh && ./gcloud/deploy-prod.sh
     skip_cleanup: true
     on:
       branch: master
